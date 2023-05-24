@@ -6,6 +6,7 @@ const gifSchema = new Schema({
     title: {
         type: String,
         required: false,
+        default: "no title"
     },
     username: {
         type: Schema.Types.ObjectId,
