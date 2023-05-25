@@ -16,7 +16,7 @@ const gifSchema = new Schema({
     file: {
         url: String,
         public_id: String
-    },
+    }
 
 });
 
