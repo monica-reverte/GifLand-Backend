@@ -18,7 +18,7 @@ const getGif = async (req, res) => {
 }
 
 const getGifId = async (req, res) => {
-    console.log(req.body)
+    
     try {
         const GifById = await Gif.findById(req.params.id)
         if (!GifById) return res.sendStatus(404)
@@ -42,7 +42,7 @@ const createGif = async (req, res) => {
 
     if (req.files?.file) {
         const result = await uploadImage(req.files.file.tempFilePath);
-        console.log(result)
+        
         gif.file = {
             url: result.secure_url,
             public_id: result.public_id
@@ -69,7 +69,7 @@ const updatingGifs = async (req, res) => {
       const updatedGif = await Gif.findByIdAndUpdate(req.body._id, {
         title: req.body.title }, { new: true }
       );
-      console.log(updatedGif)
+      
       return res.status(200).json({
         ok: true,
         updatedGif,
@@ -89,7 +89,7 @@ const updatingGifs = async (req, res) => {
     try {
         const gifRemoved = await Gif.findByIdAndDelete(req.params.id)
 
-        console.log(gifRemoved)
+        
 
         if (!gifRemoved) return res.sendStatus(404)
 
